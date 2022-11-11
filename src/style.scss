@@ -1,0 +1,284 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    color: #111;
+    margin: 0;
+    padding: 0;
+    
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    letter-spacing: 1.7;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.flex-close{
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+:root{
+    --clr-light-200: #d5d4d4;
+    --clr-dark-800: #111;
+    --clr-tertiary: lightblue;
+    --clr-accent-700: firebrick;
+}
+
+.container{
+    width: min(95%, 1080px);
+    margin-inline:auto;
+}
+
+.main-weather-section{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://source.unsplash.com/random/?weather,sunny-day');
+  background-size: cover;
+  object-fit: cover;
+}
+@media(max-width: 700px){
+  .weather-section-wrapper{
+    scale: .8;
+  }
+}
+@media(max-width: 520px){
+  .weather-section-wrapper{
+    scale: .65;
+  }
+}
+
+.city-search-container{
+    position: absolute;
+    top: 7%;
+    right: 10%;
+
+    .city-search{
+        font-size: 1.2rem;
+        padding: .25rem .5rem;
+        border-radius: 5px;
+        border: 1px solid black;
+        position: relative;
+        width: 300px;
+    }
+
+    .autocomplete{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0;
+        margin: 0;
+        max-height: 250px;
+        overflow-y: scroll;
+    }
+    .autocomplete li{
+        border: 1px solid black;
+        z-index: 99;
+        margin: 0;
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 300px;
+    }
+
+      .autocomplete li:hover {
+        /*when hovering an item:*/
+        background-color: #e9e9e9;
+      }
+      .autocomplete li h4{
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0;
+      }
+      .autocomplete li p{
+        margin: 0 auto;
+        font-weight: bold;
+      }
+      .autocomplete-active {
+        /*when navigating through the items using the arrow keys:*/
+        background-color: DodgerBlue !important;
+        color: #ffffff;
+      }
+}
+
+.weather-section-wrapper{
+  position: absolute;
+  bottom: 30%;
+  left: 6%;
+  border-radius: 12px;
+
+  rotate: 160deg;
+  transform-origin: 0% 20%;
+  transition: all 400ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.weather-section-header{
+  background-color: var(--clr-dark-800);
+  color: var(--clr-light-200);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+
+  h4{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+}
+
+.weather-section{  
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: var(--clr-tertiary);
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    font-size: 1.1rem;
+    *{
+        flex: 1;
+    }
+}
+
+.detail{
+    padding: 1em 2em;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+   
+    .title{
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  }
+  .detail:nth-child(2){
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .compass{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--clr-dark-800);
+    position: relative;
+
+    .arrow{
+      --rotation: 0;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      
+      border-top: 35px solid var(--clr-accent-700);
+      inset: 0;
+      margin: auto;
+      margin-top: 50%;
+      transform: rotate(calc(var(--rotation) * -1deg));
+      transform-origin: 50% 0;
+    }
+    &::before{
+      content: "N";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top:-23px;
+      font-weight: bold;
+    }
+    &::after{
+      content: "W";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left:-20px;
+      font-weight: bold;
+    }
+  }
+
+  .rotate-in{
+    transform: rotate(200deg);
+  }
+
+  nav.flex-close{
+
+    .skip{
+      font-size: 1.1rem;
+      color: white;
+      cursor: pointer;
+      &:hover{
+        color: var(--clr-light-200);
+      }
+    }
+  }
+
+  .date{
+    position: absolute;
+    left: 75%;
+    transform: translateX(-50%);
+    bottom: 5px;
+    font-size: .85rem;
+    z-index: 1000;
+  }

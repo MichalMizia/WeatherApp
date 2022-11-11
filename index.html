@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+    <title>Weather App</title>
+    <script src="src/index.js" defer></script>
+</head>
+<body>
+    
+    <section class="main-weather-section">
+        <div class="container">
+
+            <div class="city-search-container">
+                <form class="city-search-form" autocomplete="off" action="">
+                    <input class="city-search" id="citySearch" type="text" name="city-search" placeholder="Search for a city">
+                    <ul role="list" class="autocomplete" id="matchList">
+                      
+                    </ul>
+              </form>
+            </div>
+
+            <div class="weather-section-wrapper" id="weatherSection">
+              <div class="weather-section-header">
+                <div class="flex-close">
+                  <h4 id="generalInfo"></h4>
+                  <img src="" aria-hidden="true" alt="" class="icon">
+                </div>
+                <nav class="flex-close">
+                  <div class="skip skip-left" id="skipLeft">Previous day</div>
+                  <div class="skip skip-right" id="skipRight">Next day</div>
+                </nav>
+                <div class="date"></div>
+              </div>
+
+              <div class="weather-section">
+                  <div class="detail">
+                    <div class="title">Temperature</div>
+                    <div class="value" id="temp">TBD</div>
+                  </div>
+
+                  <div class="detail">
+                    <div>
+                      <div class="compass">
+                        <div class="arrow"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="title">Wind</div>
+                      <div class="value" id="wind">TBD</div>
+                    </div>
+                  </div>
+
+                  <div class="detail">
+                    <div class="title">Humidity</div>
+                    <div class="value" id="humidity">TBD</div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>
