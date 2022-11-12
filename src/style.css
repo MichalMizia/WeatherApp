@@ -150,13 +150,34 @@ picture {
   color: #ffffff;
 }
 
+.app-title {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-40%);
+  font-size: min(5vw, 2em);
+  font-weight: bold;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  max-width: 30ch;
+  background-color: var(--clr-light-200);
+  padding: 1em;
+  border-radius: 0.5em;
+  border: 2px solid var(--clr-dark-800);
+  text-align: center;
+}
+
+.app-title.hide {
+  display: none;
+}
+
 .weather-section-wrapper {
   position: absolute;
   bottom: 30%;
   left: 6%;
   border-radius: 12px;
   rotate: 160deg;
-  transform-origin: 0% 20%;
+  transform-origin: -6% 20%;
   transition: all 400ms ease-in-out;
   display: flex;
   flex-direction: column;

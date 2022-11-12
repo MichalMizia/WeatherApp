@@ -19,6 +19,7 @@ const generalInformation = document.getElementById('generalInfo')
 const icon = document.querySelector('.icon')
 const compassArrow = document.querySelector('.arrow')
 const dateToDisplayHtml = document.querySelector('.date')
+const appTitle = document.querySelector('.app-title')
 dateToDisplayHtml.textContent = (new Date).toLocaleDateString()
 
 const OPENWEATHER_API_KEY = 'fda2b154ed3bb0924854dcd8cdaf7277';
@@ -59,6 +60,7 @@ const searchMatches = async searchText => {
         cities = [];
         matchList.innerHTML = '';
         weatherSection.classList.remove('rotate-in')
+        appTitle.classList.remove('hide')
         currentCity = null
     }
 
@@ -107,6 +109,7 @@ matchList.addEventListener('click', (e)=>{
     prevDescription = null
     //rotate the weather section
     weatherSection.classList.add('rotate-in')
+    appTitle.classList.add('hide')
   })
 
   let currentDate = 1;
